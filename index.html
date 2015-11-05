@@ -1,0 +1,99 @@
+
+<html>
+<body>
+
+<p>I just created a simple math equation. Can you solve it?</p>
+
+<span id="first"></span>
+&nbsp;*&nbsp;
+<span id="second"></span>
+
+<br>
+
+<input type="text" id="answerInput" > <br />
+
+<button type="button" onclick="handleAnswer();">Answer</button>
+
+<p>Now you make one and try to solve it.</p>
+
+<select id="num4" onchange="myFunction(this)">
+<option value = 1>1</option>
+<option value = 2>2</option>
+<option value = 3>3</option>
+<option value = 4>4</option>
+<option value = 5>5</option>
+<option value = 6>6</option>
+<option value = 7>7</option>
+<option value = 8>8</option>
+<option value = 9>9</option>
+<option value = 10>10</option>
+</select>
+
+&nbsp;*&nbsp;
+<select id="num3" onchange="myFunction(this)">
+<option value = 1>1</option>
+<option value = 2>2</option>
+<option value = 3>3</option>
+<option value = 4>4</option>
+<option value = 5>5</option>
+<option value = 6>6</option>
+<option value = 7>7</option>
+<option value = 8>8</option>
+<option value = 9>9</option>
+<option value = 10>10</option>
+</select>
+
+<br>
+
+<input type="text" id="customAnswerInput" > <br />
+
+<button type="button" onclick="customHandleAnswer();">Answer</button>
+
+<script>
+var num1 = Math.floor(Math.random() * 10) + 1  ;
+var num2 = Math.floor(Math.random() * 10) + 1  ;
+document.getElementById("first").innerHTML = num1;
+document.getElementById("second").innerHTML = num2;
+
+var handleAnswer = function(num) {
+    var stringAnswer = document.getElementById('answerInput').value;
+    
+    var guess = parseInt(stringAnswer,10);
+    
+    if(guess == num1 * num2)
+    {
+        alert("You answered correctly!");
+    }
+    else
+    {
+        alert("Your answer is wrong. Try again.");
+    }
+};
+
+function myFunction(selTag) {
+	var num4Value = document.getElementById("num4").value;
+
+    var num4 = selTag.options[selTag.selectedIndex].text;
+	document.getElementById("forth").innerHTML = num4;
+}
+
+var customHandleAnswer = function(num) {
+    var customAnswer = document.getElementById('customAnswerInput').value;
+	var num4 = document.getElementById("num4").value;
+	var num3 = document.getElementById("num3").value;
+	
+    var cusAns = parseInt(customAnswer);
+    
+    if(cusAns == num3 * num4)
+    {
+        alert("You answered correctly!");
+    }
+    else
+    {
+        alert("Your answer is wrong. Try again.");
+    }
+};
+
+</script>
+</body>
+</html>
